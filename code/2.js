@@ -1,10 +1,9 @@
 var ctx = draw.getContext("2d");
 var rect;
+var mouseDown = false;
 
 ctx.lineJoin = "round";
 ctx.lineCap = "round"
-
-var mouseDown = false;
 
 function SetColor(c) {
    ctx.strokeStyle = c;
