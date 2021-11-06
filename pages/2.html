@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/2.css">
     <meta charset="utf-8">
     <title>Hello</title>
   </head>
   <body>
-    <h2>Draw an image here!(Mobile compatable)</h2>
+    <h1>Draw an image here!(Mobile compatable)</h2>
 
     <canvas id="draw" width="500" height="500">
       <script src="../code/2.js" charset="utf-8"></script>
     </canvas>
-
+    <p id="display">width:</p>
     <button class=SideButton onclick="SetWidth(ctx.lineWidth + 1)"> Wider </button>
     <button class=SideButton onclick="SetWidth(10)"> Wide </button>
     <button class=SideButton onclick="SetWidth(5)"> Medium </button>

@@ -11,6 +11,7 @@ function SetColor(c) {
 
 function SetWidth(n) {
    ctx.lineWidth = n;
+   display.innerHTML = "Width: " + ctx.lineWidth + " px"
 }
 
 function Erase () {

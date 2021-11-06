@@ -1,9 +1,9 @@
-#draw {
-  background-color: khaki; float:left; cursor:crosshair;
+#draw{
+  background-color: khaki; float:left; cursor: crosshair;
 }
- .SideButton {
+ .SideButton{
    display:block; width:6em;
  }
- .BottomBar {
+ .BottomBar{
    clear:left; border:2px inset gray; width:66px;
  }

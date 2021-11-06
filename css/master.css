@@ -1,7 +1,19 @@
 h1{
-  color: #00D689;
+  animation: pulse 2s infinite;
+  animation-direction: alternate;
 }
-
+@keyframes pulse{
+  0% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    color: green;
+    transform: scale(.9);
+  }
+}
 canvas{
   background-color: yellow;
 }
