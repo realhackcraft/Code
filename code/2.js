@@ -7,6 +7,10 @@ function Draw(Where) {
  ctx.fill();
  }
 
+ function Erase() {
+  ctx.clearRect(0, 0, draw.width, draw.height) 
+ }
+
  function TouchMoveHandler(Event) {
    for (var i = 0; i < Event.touches.length; i++) {
      Draw(Event.touches[i]);
@@ -27,7 +31,7 @@ function Draw(Where) {
  function MouseMoveHandler(Event) {
     if (mouseDown) Draw(Event);
   }
-  
+
   draw.addEventListener("mousedown", MouseDownHandler);
   draw.addEventListener("mouseup", MouseUpHandler);
   draw.addEventListener("touchmove", TouchMoveHandler);
