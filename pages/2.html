@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/2.css">
     <meta charset="utf-8">
     <title>Hello</title>
   </head>
   <body>
     <h2>Draw an image here!(Mobile compatable)</h2>
 
-    <canvas id="draw" width="300" height="300">
+    <canvas id="draw" width="500" height="500">
       <script src="../code/2.js" charset="utf-8"></script>
     </canvas>
-    <button onclick="Erase()">Erase All</button>
+
+    <button class=SideButton onclick="SetWidth(ctx.lineWidth + 1)"> Wider </button>
+    <button class=SideButton onclick="SetWidth(10)"> Wide </button>
+    <button class=SideButton onclick="SetWidth(5)"> Medium </button>
+    <button class=SideButton onclick="SetWidth(1)"> Narrow </button>
+    <button class=SideButton onclick="SetWidth(ctx.lineWidth - 1)"> Narrower </button>
+    <p>
+    <button class=SideButton onclick="SetColor('khaki')"> Eraser </button>
+    </p>
+
+    <p>
+      <button class=SideButton style="background-color:teal; color:white" onclick="SetColor('teal')"> Teal </button>
+      <button class=SideButton style="background-color:olive; color:white" onclick="SetColor('olive')"> Olive </button>
+      <button class=SideButton style="background-color:purple; color:white" onclick="SetColor('purple')"> Purple </button>
+      <button class=SideButton style="background-color:maroon; color:white" onclick="SetColor('maroon')"> Maroon </button>
+      <button class=SideButton style="background-color:green; color:white" onclick="SetColor('green')"> Green </button>
+      <button class=SideButton style="background-color:navy; color:white" onclick="SetColor('navy')"> Navy </button>
+      <button class=SideButton style="background-color:blue; color:white" onclick="SetColor('blue')"> Blue </button>
+      <button class=SideButton style="background-color:black; color:white" onclick="SetColor('black')"> Black </button>
+      <button class=SideButton style="background-color:fuchsia" onclick="SetColor('fuchsia')"> Fuchsia </button>
+      <button class=SideButton style="background-color:gray" onclick="SetColor('gray')"> Gray </button>
+      <button class=SideButton style="background-color:red" onclick="SetColor('red')"> Red </button>
+      <button class=SideButton style="background-color:lime" onclick="SetColor('lime')"> Lime </button>
+      <button class=SideButton style="background-color:cyan" onclick="SetColor('cyan')"> Cyan </button>
+      <button class=SideButton style="background-color:silver" onclick="SetColor('silver')"> Silver </button>
+      <button class=SideButton style="background-color:white" onclick="SetColor('white')"> White </button>
+      <button class=SideButton style="background-color:yellow" onclick="SetColor('yellow')"> Yellow </button>
+    </p>
+
+    <div class=BottomBar>
+      <button onclick="Erase()">Clear All</button>
+    </div>
+
     <br>
     <a href="../index.html">Previous</a>
     <a href="./pages/2.html">Next</a>

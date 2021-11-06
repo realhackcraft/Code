@@ -1,38 +1,49 @@
 var ctx = draw.getContext("2d");
+var rect;
 
-function Draw(Where) {
- var rect = draw.getBoundingClientRect();
- ctx.beginPath();
- ctx.arc(Where.clientX - rect.left, Where.clientY - rect.top, 5, 0, Math.PI * 2);
- ctx.fill();
- }
+ctx.lineJoin = "round";
+ctx.lineCap = "round"
 
- function Erase() {
-  ctx.clearRect(0, 0, draw.width, draw.height) 
- }
+var mouseDown = false;
 
- function TouchMoveHandler(Event) {
-   for (var i = 0; i < Event.touches.length; i++) {
-     Draw(Event.touches[i]);
+function SetColor(c) {
+   ctx.strokeStyle = c;
+}
+
+function SetWidth(n) {
+   ctx.lineWidth = n;
+}
+
+function Erase () {
+   ctx.clearRect(0, 0, draw.width, draw.height);
+}
+
+
+function MouseDownHandler(Event) {
+   if (Event.which == 1) mouseDown = true;
+   rect = draw.getBoundingClientRect();
+   ctx.moveTo(Event.clientX - rect.left, Event.clientY - rect.top);
+   ctx.beginPath();
+}
+
+function MouseUpHandler(Event) {
+   if (Event.which == 1) mouseDown = false;
+}
+
+function TouchMoveHandler(Event) {
+  ctx.lineTo(Event.clientX - rect.left, Event.clientY - rect.top);
+  ctx.stroke();
+  Event.preventDefault()
+  }
+
+function MouseMoveHandler(Event) {
+   if (mouseDown) {
+     ctx.lineTo(Event.clientX - rect.left, Event.clientY - rect.top);
+     ctx.stroke();
    }
- Event.preventDefault()
- }
+}
 
- var mouseDown = false;
-
- function MouseDownHandler(Event) {
-    if (Event.which == 1) mouseDown = true;
-  }
-
- function MouseUpHandler(Event) {
-    if (Event.which == 1) mouseDown = false;
-  }
-
- function MouseMoveHandler(Event) {
-    if (mouseDown) Draw(Event);
-  }
-
-  draw.addEventListener("mousedown", MouseDownHandler);
-  draw.addEventListener("mouseup", MouseUpHandler);
-  draw.addEventListener("touchmove", TouchMoveHandler);
-  draw.addEventListener("mousemove", MouseMoveHandler);
+draw.addEventListener("touchmove", TouchMoveHandler);
+draw.addEventListener("mousedown", MouseDownHandler);
+draw.addEventListener("mouseup", MouseUpHandler);
+draw.addEventListener("mousemove", MouseMoveHandler);
