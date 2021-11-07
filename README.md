@@ -15,4 +15,4 @@ that's all!
 
 ## use
 
-to use(play with) this project, you must download the project with the instruction on in **change**. then, you must click on "index.html".
+to use(play with) this project, you can go to https://realhackcraft.github.io/code
