@@ -15,4 +15,8 @@ that's all!
 
 ## use
 
-to use(play with) this project, you can go to https://realhackcraft.github.io/code
+to use(play with) this project, you can go to https://realhackcraft.github.io/Code
+
+
+# _**IMPORTANT!!!**_
+for typig in the address manualy, you need to capitalize the c in Code!!!
