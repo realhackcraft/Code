@@ -30,20 +30,11 @@ function MouseUpHandler(Event) {
    if (Event.which == 1) mouseDown = false;
 }
 
-function TouchMoveHandler(Event) {
-  ctx.lineTo(Event.clientX - rect.left, Event.clientY - rect.top);
-  ctx.stroke();
-  Event.preventDefault()
-  }
-
 function MouseMoveHandler(Event) {
    if (mouseDown) {
      ctx.lineTo(Event.clientX - rect.left, Event.clientY - rect.top);
      ctx.stroke();
    }
 }
-
-draw.addEventListener("touchmove", TouchMoveHandler);
-draw.addEventListener("mousedown", MouseDownHandler);
 draw.addEventListener("mouseup", MouseUpHandler);
 draw.addEventListener("mousemove", MouseMoveHandler);
