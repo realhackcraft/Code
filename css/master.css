@@ -1,19 +1,35 @@
 h1{
+
   animation: pulse 2s infinite;
   animation-direction: alternate;
+  font-family: sans-serif;
+  text-emphasis: bold;
 }
+
 @keyframes pulse{
-  0% {
+  0%{
     color: red;
   }
-  50% {
+  25%{
+    color: purple;
+  }
+  50%{
     color: blue;
   }
-  100% {
+  75%{
     color: green;
+  }
+  100%{
+    color: cyan;
     transform: scale(.9);
   }
 }
+
 canvas{
-  background-color: yellow;
+  background-color: khaki;
+}
+
+h2{
+  font-variant: small-caps;
+
 }
