@@ -36,5 +36,6 @@ function MouseMoveHandler(Event) {
      ctx.stroke();
    }
 }
+draw.addEventListener("mousedown", MouseDownHandler);
 draw.addEventListener("mouseup", MouseUpHandler);
 draw.addEventListener("mousemove", MouseMoveHandler);
