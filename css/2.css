@@ -1,16 +1,16 @@
 #draw{
-  float:left;
+  float: left;
   cursor: crosshair;
 }
  .SideButton{
-   display:block;
-   width:6em;
+   display: block;
+   width: 6em;
  }
  .ColorButton{
-   width:6em;
+   width: 6em;
  }
  .BottomBar{
-   clear:left;
-   border:2px inset gray;
-   width:66px;
+   clear: left;
+   border: 2px inset gray;
+   width: 66px;
  }
