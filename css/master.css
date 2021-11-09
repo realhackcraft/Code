@@ -1,8 +1,8 @@
 h1{
-
   animation: pulse 2s infinite;
   animation-direction: alternate;
   font-family: sans-serif;
+  transform-origin: 25% 10%;
   text-emphasis: bold;
 }
 
@@ -15,13 +15,11 @@ h1{
   }
   50%{
     color: blue;
-  }
-  75%{
-    color: green;
+    transform: scale(.6);
   }
   100%{
     color: cyan;
-    transform: scale(.9);
+    transform: scale(.75);
   }
 }
 
