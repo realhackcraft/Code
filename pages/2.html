@@ -9,9 +9,7 @@
   <body>
     <marquee>Draw an image here!</marquee>
 
-    <canvas id="draw" width="540" height="540">
-      <script src="../code/2.js" charset="utf-8"></script>
-    </canvas>
+    <canvas id="draw" width="540" height="540"></canvas>
     <p id="display">width:</p>
     <button class=SideButton onclick="SetWidth(ctx.lineWidth + 1)"> Wider </button>
     <button class=SideButton onclick="SetWidth(10)"> Wide </button>
@@ -21,7 +19,6 @@
     <p>
       <button class=SideButton onclick="SetColor('khaki')"> Eraser </button>
       </p>
-
       <p>
         <button class=ColorButton style="background-color:teal; color:white" onclick="SetColor('teal')"> Teal </button>
         <button class=ColorButton style="background-color:olive; color:white" onclick="SetColor('olive')"> Olive </button>
@@ -47,9 +44,9 @@
     <div class=BottomBar>
       <button onclick="Erase()">Clear All</button>
     </div>
-
     <br>
     <a href="../index.html">Previous</a>
     <a href="./pages/2.html">Next</a>
+    <script src="../code/2.js" charset="utf-8"></script>
   </body>
 </html>
