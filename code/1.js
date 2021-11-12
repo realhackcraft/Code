@@ -11,7 +11,7 @@ function Sprite (url) {
        this.velocity_x = 0;
        this.velocity_y = 0;
        this.Img = new Image();
-       this.Img.src = url ;
+       this.Img.src = url;
        }
 
 
@@ -27,7 +27,7 @@ function Sprite (url) {
        if (this.visible) ctx.drawImage(this.Img, this.x, this.y);  // draw it
        }
 
-var player = new Sprite("https://s2js.com/img/etc/burger.png"); // The player
+var player = new Sprite("../Img/player.svg"); // The player
 
 function Frame () {
    ctx.clearRect(0, 0, game.width, game.height);     // clear the background
@@ -42,10 +42,21 @@ function KeyUpHandler (Event) {
   }
 
 function KeyDownHandler (Event) {
-  if (Event.keyCode == 37) {player.velocity_x=  -Speed};  // left
-  if (Event.keyCode == 38) {player.velocity_y=  -Speed};  // up
-  if (Event.keyCode == 39) {player.velocity_x=   Speed};  // right
-  if (Event.keyCode == 40) {player.velocity_y=   Speed};  // down
+  switch (Event.keyCode) {
+    case 37:
+      player.velocity_x=  -Speed // left
+      break;
+    case 38:
+      player.velocity_y=  -Speed // up
+      break;
+    case 39:
+      player.velocity_x=   Speed // right
+      break;
+    case 40:
+      player.velocity_y=   Speed // down
+      break;
+    default:
+  }
   Event.preventDefault();
   }
 
@@ -65,7 +76,6 @@ function KeyDownHandler (Event) {
          if (y > game.height * 0.66) player.velocity_y= player.velocity_y + Speed;
          if (y < game.height * 0.33) player.velocity_y= player.velocity_y - Speed;
          }
-
      Event.preventDefault();
      }
 
