@@ -11,10 +11,21 @@ function Timer () {
 }
 
 function KeyDownHandler (Event) {
-  if (Event.keyCode == 37) left();   //left
-  if (Event.keyCode == 38) up();    //up
-  if (Event.keyCode == 39) right();   //right
-  if (Event.keyCode == 40) down;   //down
+  switch (Event.keyCode) {
+    case 37:
+      left();
+      break;
+    case 38:
+      up();
+      break;
+    case 39:
+      right();
+      break;
+    case 40:
+      down();
+      break;
+    default:
+  }
   Event.preventDefault()
 }
 
