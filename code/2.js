@@ -1,4 +1,5 @@
-var ctx = draw.getContext("2d");
+var id = document.getElementById('draw')
+var ctx = id.getContext("2d");
 var rect;
 var mouseDown = false;
 
@@ -15,13 +16,13 @@ function SetWidth(n) {
 }
 
 function Erase () {
-   ctx.clearRect(0, 0, draw.width, draw.height);
+   ctx.clearRect(0, 0, id.width, id.height);
 }
 
 
 function MouseDownHandler(Event) {
    if (Event.which == 1) mouseDown = true;
-   rect = draw.getBoundingClientRect();
+   rect = id.getBoundingClientRect();
    ctx.moveTo(Event.clientX - rect.left, Event.clientY - rect.top);
    ctx.beginPath();
 }
@@ -36,6 +37,6 @@ function MouseMoveHandler(Event) {
      ctx.stroke();
    }
 }
-draw.addEventListener("mousedown", MouseDownHandler);
-draw.addEventListener("mouseup", MouseUpHandler);
-draw.addEventListener("mousemove", MouseMoveHandler);
+id.addEventListener("mousedown", MouseDownHandler);
+id.addEventListener("mouseup", MouseUpHandler);
+id.addEventListener("mousemove", MouseMoveHandler);

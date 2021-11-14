@@ -1,4 +1,5 @@
-var ctx = game.getContext("2d"); // Get the drawing context for the canvas
+var id = document.getElementById('game')
+var ctx = id.getContext("2d"); // Get the drawing context for the canvas
 var FPS = 40;                        // How many frames per second
 var Speed = 3;                   // How quick he goes, when he's going
 
@@ -12,6 +13,7 @@ function Sprite (url) {
        this.velocity_y = 0;
        this.Img = new Image();
        this.Img.src = url;
+       this.Img.size = 50;
        }
 
 
@@ -20,17 +22,17 @@ function Sprite (url) {
        // only apply velocities if not moving the sprite further off-screen
 
        if ((this.velocity_x < 0) && (this.x > 0))  this.x += this.velocity_x;
-       if ((this.velocity_x > 0) && (this.x + this.Img.width < game.width )) this.x += this.velocity_x;
+       if ((this.velocity_x > 0) && (this.x + this.Img.size < id.width )) this.x += this.velocity_x;
        if ((this.velocity_y < 0) && (this.y > 0))  this.y +=  this.velocity_y;
-       if ((this.velocity_y > 0) && (this.y + this.Img.height < game.height)) this.y += this.velocity_y;
+       if ((this.velocity_y > 0) && (this.y + this.Img.size < id.height)) this.y += this.velocity_y;
 
-       if (this.visible) ctx.drawImage(this.Img, this.x, this.y);  // draw it
+       if (this.visible) ctx.drawImage(this.Img, this.x, this.y, this.Img.size, this.Img.size);  // draw it
        }
 
 var player = new Sprite("../Img/player.png"); // The player
 
 function Frame () {
-   ctx.clearRect(0, 0, game.width, game.height);     // clear the background
+   ctx.clearRect(0, 0, id.width, id.height);     // clear the background
    ctx.font = "20px arial";
    ctx.fillText("player x=" + player.x + " y=" + player.y, 0, 20); // show player coordinates
    player.Update();                                   // player
@@ -61,7 +63,7 @@ function KeyDownHandler (Event) {
   }
 
   function TouchHandler (Event) {
-     var rect = game.getBoundingClientRect();           // where is our canvas
+     var rect = id.getBoundingClientRect();           // where is our canvas
      player.velocity_y = 0;
      player.velocity_x = 0;                                    // zero out velocity
 
@@ -71,20 +73,20 @@ function KeyDownHandler (Event) {
 
          // Add velocity depending on which thirds we see touch
 
-         if (x > game.width * 0.66) player.velocity_x = player.velocity_x + Speed;
-         if (x < game.width * 0.33) player.velocity_x = player.velocity_x - Speed;
-         if (y > game.height * 0.66) player.velocity_y = player.velocity_y + Speed;
-         if (y < game.height * 0.33) player.velocity_y = player.velocity_y - Speed;
+         if (x > id.width * 0.66) player.velocity_x = player.velocity_x + Speed;
+         if (x < id.width * 0.33) player.velocity_x = player.velocity_x - Speed;
+         if (y > id.height * 0.66) player.velocity_y = player.velocity_y + Speed;
+         if (y < id.height * 0.33) player.velocity_y = player.velocity_y - Speed;
          }
      Event.preventDefault();
      }
 
      addEventListener("keydown", KeyDownHandler);           // listen for keystrokes
      addEventListener("keyup", KeyUpHandler);               // listen for keys released
-     game.addEventListener("touchstart", TouchHandler);
-     game.addEventListener("touchmove", TouchHandler);  // listen for anything about touches
-     game.addEventListener("touchend", TouchHandler);
+     id.addEventListener("touchstart", TouchHandler);
+     id.addEventListener("touchmove", TouchHandler);  // listen for anything about touches
+     id.addEventListener("touchend", TouchHandler);
      setInterval(Frame, 1000/FPS);                  // set my frame renderer
-     
-     game.width = window.innerWidth - 40;            // fill the entire browser width
-     game.height = window.innerHeight - 250;          // fill the entire browser height
+
+     id.width = window.innerWidth - 40;            // fill the entire browser width
+     id.height = window.innerHeight - 250;          // fill the entire browser height
