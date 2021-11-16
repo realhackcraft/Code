@@ -1,10 +1,10 @@
-var id = document.getElementById('draw')
+var id = document.getElementById('draw');
 var ctx = id.getContext("2d");
 var rect;
 var mouseDown = false;
 
 ctx.lineJoin = "round";
-ctx.lineCap = "round"
+ctx.lineCap = "round";
 
 function SetColor(c) {
    ctx.strokeStyle = c;
